@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NotificationCenter
 
 struct ContentView: View {
     var body: some View {
