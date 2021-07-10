@@ -19,6 +19,11 @@ struct ContentView: View {
         }, label: {
             Text("通知を送信")
         })
+        .onAppear(perform: {
+            let _ = NotificationCenter.default.addObserver(forName: myNotification, object: nil, queue: nil) { notification in
+                print("通知を受信")
+            }
+        })
     }
 }
 
