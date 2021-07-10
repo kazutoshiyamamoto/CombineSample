@@ -12,8 +12,6 @@ struct ContentView: View {
     let myNotification = Notification.Name("MyNotification")
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
         Button(action: {
             NotificationCenter.default.post(name: myNotification, object: nil)
         }, label: {
