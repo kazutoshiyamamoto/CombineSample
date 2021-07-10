@@ -9,6 +9,8 @@ import SwiftUI
 import NotificationCenter
 
 struct ContentView: View {
+    let myNotification = Notification.Name("MyNotification")
+    
     var body: some View {
         Text("Hello, world!")
             .padding()
