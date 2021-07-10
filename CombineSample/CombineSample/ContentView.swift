@@ -14,6 +14,11 @@ struct ContentView: View {
     var body: some View {
         Text("Hello, world!")
             .padding()
+        Button(action: {
+            NotificationCenter.default.post(name: myNotification, object: nil)
+        }, label: {
+            Text("通知を送信")
+        })
     }
 }
 
