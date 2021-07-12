@@ -9,11 +9,12 @@ import SwiftUI
 import NotificationCenter
 
 struct ContentView: View {
-    let myNotification = Notification.Name("MyNotification")
+    let sampleNotification = Notification.Name("sampleNotification")
+    
     
     var body: some View {
         Button(action: {
-            NotificationCenter.default.post(name: myNotification, object: nil)
+            NotificationCenter.default.post(name: sampleNotification, object: nil)
         }, label: {
             Text("通知を送信")
         })
