@@ -12,15 +12,17 @@ struct ContentView: View {
     let sampleNotification = Notification.Name("sampleNotification")
     
     
+    init() {
+        let _ = NotificationCenter.default.addObserver(forName: sampleNotification, object: nil, queue: nil) { notification in
+            print("Receive notification")
+        }
+        
+    }
+    
     var body: some View {
         Button(action: {
             NotificationCenter.default.post(name: sampleNotification, object: nil)
         }, label: {
-        })
-        .onAppear(perform: {
-            let _ = NotificationCenter.default.addObserver(forName: myNotification, object: nil, queue: nil) { notification in
-                print("通知を受信")
-            }
             Text("Send notification")
         })
     }
