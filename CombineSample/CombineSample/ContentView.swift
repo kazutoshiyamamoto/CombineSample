@@ -13,7 +13,7 @@ struct ContentView: View {
     
     
     init() {
-        let _ = NotificationCenter.default.addObserver(forName: sampleNotification, object: nil, queue: nil) { notification in
+        _ = NotificationCenter.default.addObserver(forName: sampleNotification, object: nil, queue: nil) { _ in
             print("Receive notification")
         }
         
