@@ -6,17 +6,26 @@
 //
 
 import SwiftUI
-import NotificationCenter
+import Combine
 
 struct ContentView: View {
     let sampleNotification = Notification.Name("sampleNotification")
     
+    var cancellable: AnyCancellable?
     
     init() {
-        _ = NotificationCenter.default.addObserver(forName: sampleNotification, object: nil, queue: nil) { _ in
-            print("Receive notification")
-        }
-        
+        cancellable = NotificationCenter.default.publisher(for: sampleNotification, object: nil)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("finished")
+                case .failure(let error):
+                    print("error \(error.localizedDescription)")
+                }
+            },
+            receiveValue: { notification in
+                print("Receive notification")
+            })
     }
     
     var body: some View {
