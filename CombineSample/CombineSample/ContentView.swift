@@ -9,9 +9,9 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    let sampleNotification = Notification.Name("sampleNotification")
+    private let sampleNotification = Notification.Name("sampleNotification")
     
-    var cancellable: AnyCancellable?
+    private var cancellable: AnyCancellable?
     
     init() {
         cancellable = NotificationCenter.default.publisher(for: sampleNotification, object: nil)
