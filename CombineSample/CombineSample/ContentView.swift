@@ -23,7 +23,7 @@ struct ContentView: View {
                     print("error \(error.localizedDescription)")
                 }
             },
-            receiveValue: { notification in
+            receiveValue: { _ in
                 print("Receive notification")
             })
     }
