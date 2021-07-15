@@ -15,6 +15,7 @@ struct ContentView: View {
     
     init() {
         cancellable = NotificationCenter.default.publisher(for: sampleNotification, object: nil)
+            .compactMap { Int($0.userInfo!["numberString"] as! String) }
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -23,14 +24,18 @@ struct ContentView: View {
                     print("error \(error.localizedDescription)")
                 }
             },
-            receiveValue: { _ in
-                print("Receive notification")
+            receiveValue: { number in
+                print(number)
             })
     }
     
     var body: some View {
         Button(action: {
-            NotificationCenter.default.post(name: sampleNotification, object: nil)
+            NotificationCenter.default.post(
+                name: sampleNotification,
+                object: nil,
+                userInfo: ["numberString": "1"]
+            )
         }, label: {
             Text("Send notification")
         })
