@@ -15,8 +15,7 @@ struct ContentView: View {
     
     init() {
         cancellable = NotificationCenter.default.publisher(for: sampleNotification, object: nil)
-            .map { Int($0.userInfo!["numberString"] as! String) }
-            .replaceNil(with: 2)
+            .compactMap { Int($0.userInfo!["numberString"] as! String) }
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
