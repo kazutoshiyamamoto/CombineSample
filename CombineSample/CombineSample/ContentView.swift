@@ -25,6 +25,10 @@ struct ContentView: View {
             Text("1から始まる文字列を出力\n\(viewModel.filteredText)")
                 .padding()
             
+            Button("サンプルをリセット") {
+                viewModel.text = ""
+                viewModel.filteredText = ""
+            }
         }
     }
 }
