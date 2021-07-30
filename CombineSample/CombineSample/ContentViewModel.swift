@@ -10,4 +10,5 @@ import Combine
 
 final class ContentViewModel: ObservableObject {
     @Published var text = ""
+    @Published var filteredText = ""
 }
