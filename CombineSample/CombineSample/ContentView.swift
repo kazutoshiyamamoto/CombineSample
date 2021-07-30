@@ -21,6 +21,10 @@ struct ContentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: 300)
                 .padding()
+            
+            Text("1から始まる文字列を出力\n\(viewModel.filteredText)")
+                .padding()
+            
         }
     }
 }
