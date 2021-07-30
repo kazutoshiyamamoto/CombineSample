@@ -9,7 +9,10 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
+    @ObservedObject private var viewModel: ContentViewModel
     
+    init(viewModel: ContentViewModel) {
+        self.viewModel = viewModel
     }
     
     var body: some View {
@@ -18,6 +21,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: ContentViewModel())
     }
 }
