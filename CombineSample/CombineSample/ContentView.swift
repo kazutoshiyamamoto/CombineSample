@@ -16,6 +16,12 @@ struct ContentView: View {
     }
     
     var body: some View {
+        VStack {
+            TextField("文字を入力", text: $viewModel.text)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .frame(width: 300)
+                .padding()
+        }
     }
 }
 
