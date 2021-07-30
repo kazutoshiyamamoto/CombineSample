@@ -9,36 +9,10 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    private let sampleNotification = Notification.Name("sampleNotification")
     
-    private var cancellable: AnyCancellable?
-    
-    init() {
-        cancellable = NotificationCenter.default.publisher(for: sampleNotification, object: nil)
-            .compactMap { Int($0.userInfo!["numberString"] as! String) }
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    print("finished")
-                case .failure(let error):
-                    print("error \(error.localizedDescription)")
-                }
-            },
-            receiveValue: { number in
-                print(number)
-            })
     }
     
     var body: some View {
-        Button(action: {
-            NotificationCenter.default.post(
-                name: sampleNotification,
-                object: nil,
-                userInfo: ["numberString": "Non-numeric string"]
-            )
-        }, label: {
-            Text("Send notification")
-        })
     }
 }
 
