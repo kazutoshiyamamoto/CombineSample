@@ -22,7 +22,7 @@ struct ContentView: View {
                 .frame(width: 300)
                 .padding()
             
-            Text("1から始まる文字列を出力\n\(viewModel.filteredText)")
+            Text("抽出条件に合致した文字列を出力\n\(viewModel.filteredText)")
                 .padding()
             
             Button("サンプルをリセット") {
