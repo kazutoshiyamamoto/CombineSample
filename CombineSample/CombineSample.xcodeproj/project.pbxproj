@@ -15,6 +15,7 @@
 		FD82AD492697425000DBA7D0 /* CombineSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82AD482697425000DBA7D0 /* CombineSampleTests.swift */; };
 		FD82AD542697425000DBA7D0 /* CombineSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82AD532697425000DBA7D0 /* CombineSampleUITests.swift */; };
 		FD82AD62269F0A7700DBA7D0 /* NotificationCenterSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82AD61269F0A7700DBA7D0 /* NotificationCenterSample.swift */; };
+		FDA1D56B26B9809E0064D59E /* OperatorSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA1D56A26B9809E0064D59E /* OperatorSample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		FD82AD532697425000DBA7D0 /* CombineSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineSampleUITests.swift; sourceTree = "<group>"; };
 		FD82AD552697425000DBA7D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD82AD61269F0A7700DBA7D0 /* NotificationCenterSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterSample.swift; sourceTree = "<group>"; };
+		FDA1D56A26B9809E0064D59E /* OperatorSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorSample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				FD82AD382697424F00DBA7D0 /* ContentView.swift */,
 				FD7915A326B3F0AE006CBE03 /* ContentViewModel.swift */,
 				FD82AD61269F0A7700DBA7D0 /* NotificationCenterSample.swift */,
+				FDA1D56A26B9809E0064D59E /* OperatorSample.swift */,
 				FD82AD3A2697425000DBA7D0 /* Assets.xcassets */,
 				FD82AD3F2697425000DBA7D0 /* Info.plist */,
 				FD82AD3C2697425000DBA7D0 /* Preview Content */,
@@ -269,6 +272,7 @@
 				FD82AD392697424F00DBA7D0 /* ContentView.swift in Sources */,
 				FD82AD372697424F00DBA7D0 /* CombineSampleApp.swift in Sources */,
 				FD82AD62269F0A7700DBA7D0 /* NotificationCenterSample.swift in Sources */,
+				FDA1D56B26B9809E0064D59E /* OperatorSample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
