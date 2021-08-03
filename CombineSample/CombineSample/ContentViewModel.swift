@@ -22,13 +22,6 @@ final class ContentViewModel: ObservableObject {
             .receive(on: RunLoop.main)
             .assign(to: \.filteredText, on: self)
             .store(in: &cancellables)
-        
-        //        $text
-        //            .filter( { $0.unicodeScalars.allSatisfy( { CharacterSet.alphanumerics.contains($0) } ) } )
-        //            .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
-        //            .receive(on: RunLoop.main)
-        //            .assign(to: \.filteredText, on: self)
-        //            .store(in: &cancellables)
     }
 }
 
