@@ -16,20 +16,6 @@ struct ContentView: View {
     }
     
     var body: some View {
-        VStack {
-            TextField("文字を入力", text: $viewModel.text)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(width: 300)
-                .padding()
-            
-            Text("抽出条件に合致した文字列を出力\n\(viewModel.filteredText)")
-                .padding()
-            
-            Button("サンプルをリセット") {
-                viewModel.text = ""
-                viewModel.filteredText = ""
-            }
-        }
     }
 }
 
