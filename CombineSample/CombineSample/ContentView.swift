@@ -16,6 +16,12 @@ struct ContentView: View {
     }
     
     var body: some View {
+        VStack {
+            Text("textA:\(viewModel.textA)")
+                .padding()
+            
+            Text("textB:\(viewModel.textB)")
+        }
     }
 }
 
