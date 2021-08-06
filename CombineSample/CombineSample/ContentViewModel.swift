@@ -20,19 +20,15 @@ final class ContentViewModel: ObservableObject {
         sampleString.publisher
             .compactMap( { String($0) } )
             .sink(receiveValue: {
-                //                self.textA = $0
                 print($0)
             })
-            //            .assign(to: \.textA, on: self)
             .store(in: &cancellables)
         
         Just(sampleString)
             .compactMap( { String($0) } )
             .sink(receiveValue: {
-                //                self.textB = $0
                 print($0)
             })
-            //            .assign(to: \.textB, on: self)
             .store(in: &cancellables)
                 print($0)
             })
