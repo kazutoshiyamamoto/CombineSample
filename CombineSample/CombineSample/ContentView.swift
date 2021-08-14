@@ -16,7 +16,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .trailing) {
             Text("textA:\(viewModel.textA)")
                 .padding()
             
