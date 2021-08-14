@@ -21,6 +21,9 @@ struct ContentView: View {
                 .padding()
             
             Text("textB:\(viewModel.textB)")
+                .padding()
+            
+            Text("\(viewModel.count)個")
         }
     }
 }
