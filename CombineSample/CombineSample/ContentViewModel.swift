@@ -81,7 +81,7 @@ final class ContentViewModel: ObservableObject {
             //                        }
             .store(in: &cancellables)
         
-        timerCancellable = Timer.publish(every: 0.0000001, on: .main, in: .common)
+        timerCancellable = Timer.publish(every: 0.0001, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 guard let self = self else { return }
