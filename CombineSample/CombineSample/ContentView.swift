@@ -16,15 +16,6 @@ struct ContentView: View {
     }
     
     var body: some View {
-        VStack(alignment: .trailing) {
-            Text("textA:\(viewModel.textA)")
-                .padding()
-            
-            Text("textB:\(viewModel.textB)")
-                .padding()
-            
-            Text("\(viewModel.count)個")
-        }
     }
 }
 
