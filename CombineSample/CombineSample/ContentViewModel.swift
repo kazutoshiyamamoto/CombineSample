@@ -13,6 +13,7 @@ final class ContentViewModel: ObservableObject {
     let end: Int = 4000000
     
     private var cancellable: AnyCancellable?
+    var timer: Timer?
     
     init() {
         cancellable = Timer.publish(every: 0.001, on: .main, in: .common)
@@ -51,5 +52,18 @@ final class ContentViewModel: ObservableObject {
                     self.cancellable?.cancel()
                 }
             }
+    
+    func startCounting() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.count += 1
+        }
+    }
+    
+    func stopCounting() {
+        timer?.invalidate()
+    }
+    
+    func resetCount() {
+        count = 0
     }
 }
