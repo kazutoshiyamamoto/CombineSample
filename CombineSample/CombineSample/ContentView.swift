@@ -27,6 +27,11 @@ struct ContentView: View {
             }
             .padding()
             
+            Button("Stop") {
+                viewModel.stopCounting()
+            }
+            .padding()
+            
         }
     }
 }
