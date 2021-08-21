@@ -22,6 +22,11 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 .padding()
             
+            Button("Start") {
+                viewModel.startCounting()
+            }
+            .padding()
+            
         }
     }
 }
