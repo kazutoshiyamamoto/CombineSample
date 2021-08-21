@@ -16,9 +16,13 @@ struct ContentView: View {
     }
     
     var body: some View {
-        Text("\(viewModel.count)")
-            .font(.title)
-            .fontWeight(.bold)
+        VStack {
+            Text("\(viewModel.count)")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
+            
+        }
     }
 }
 
