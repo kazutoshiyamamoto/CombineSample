@@ -14,7 +14,6 @@ final class ContentViewModel: ObservableObject {
     
     private var cancellable: AnyCancellable?
     @Published var isTimerRunning = false
-    var timer: Timer?
     
     init() {
         cancellable = Timer.publish(every: 0.001, on: .main, in: .common)
