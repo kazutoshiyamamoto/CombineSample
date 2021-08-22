@@ -25,11 +25,12 @@ struct ContentView: View {
             Button("Start") {
                 viewModel.startCounting()
             }
-            .padding()
+            .disabled(viewModel.isTimerRunning)
             
             Button("Stop") {
                 viewModel.stopCounting()
             }
+            .disabled(!viewModel.isTimerRunning)
             .padding()
             
             Button("Reset") {
