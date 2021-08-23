@@ -21,20 +21,20 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 .padding()
             
-            Button("Start") {
-                viewModel.startCounting()
-            }
-            .disabled(viewModel.isTimerRunning)
-            
-            Button("Stop") {
-                viewModel.stopCounting()
-            }
-            .disabled(!viewModel.isTimerRunning)
-            .padding()
-            
-            Button("Reset") {
-                viewModel.resetCount()
-            }
+//            Button("Start") {
+//                viewModel.startCounting()
+//            }
+//            .disabled(viewModel.isTimerRunning)
+//
+//            Button("Stop") {
+//                viewModel.stopCounting()
+//            }
+//            .disabled(!viewModel.isTimerRunning)
+//            .padding()
+//
+//            Button("Reset") {
+//                viewModel.resetCount()
+//            }
         }
     }
 }
