@@ -17,6 +17,7 @@
 		FD82AD542697425000DBA7D0 /* CombineSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82AD532697425000DBA7D0 /* CombineSampleUITests.swift */; };
 		FD82AD62269F0A7700DBA7D0 /* NotificationCenterSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82AD61269F0A7700DBA7D0 /* NotificationCenterSample.swift */; };
 		FDA1D56B26B9809E0064D59E /* OperatorSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA1D56A26B9809E0064D59E /* OperatorSample.swift */; };
+		FDBFCC3726D3BFE700EA2FB6 /* TimerSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBFCC3626D3BFE700EA2FB6 /* TimerSample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		FD82AD552697425000DBA7D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD82AD61269F0A7700DBA7D0 /* NotificationCenterSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterSample.swift; sourceTree = "<group>"; };
 		FDA1D56A26B9809E0064D59E /* OperatorSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorSample.swift; sourceTree = "<group>"; };
+		FDBFCC3626D3BFE700EA2FB6 /* TimerSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				FD82AD61269F0A7700DBA7D0 /* NotificationCenterSample.swift */,
 				FDA1D56A26B9809E0064D59E /* OperatorSample.swift */,
 				FD4329B326CFE8A9003EAD53 /* JustSample.swift */,
+				FDBFCC3626D3BFE700EA2FB6 /* TimerSample.swift */,
 				FD82AD3A2697425000DBA7D0 /* Assets.xcassets */,
 				FD82AD3F2697425000DBA7D0 /* Info.plist */,
 				FD82AD3C2697425000DBA7D0 /* Preview Content */,
@@ -276,6 +279,7 @@
 				FD82AD372697424F00DBA7D0 /* CombineSampleApp.swift in Sources */,
 				FD82AD62269F0A7700DBA7D0 /* NotificationCenterSample.swift in Sources */,
 				FDA1D56B26B9809E0064D59E /* OperatorSample.swift in Sources */,
+				FDBFCC3726D3BFE700EA2FB6 /* TimerSample.swift in Sources */,
 				FD4329B426CFE8A9003EAD53 /* JustSample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

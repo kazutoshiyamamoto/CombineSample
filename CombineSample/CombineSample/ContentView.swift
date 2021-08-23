@@ -15,27 +15,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-        VStack {
-            Text("\(viewModel.count)")
-                .font(.title)
-                .fontWeight(.bold)
-                .padding()
-            
-//            Button("Start") {
-//                viewModel.startCounting()
-//            }
-//            .disabled(viewModel.isTimerRunning)
-//
-//            Button("Stop") {
-//                viewModel.stopCounting()
-//            }
-//            .disabled(!viewModel.isTimerRunning)
-//            .padding()
-//
-//            Button("Reset") {
-//                viewModel.resetCount()
-//            }
-        }
+        Text("SampleText"))
     }
 }
 
