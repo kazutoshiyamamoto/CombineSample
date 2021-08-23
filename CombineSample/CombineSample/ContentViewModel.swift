@@ -10,7 +10,7 @@ import Combine
 
 final class ContentViewModel: ObservableObject {
     @Published var count = 0
-    let end: Int = 4000000
+    private let endCount: Int = 10000
     
     //    @Published var isTimerRunning = false
     
@@ -22,8 +22,8 @@ final class ContentViewModel: ObservableObject {
             .sink { [weak self] _ in
                 guard let self = self else { return }
                 
-                var numbersToAdd: Int {
-                    switch self.end {
+                var additionNumbers: Int {
+                    switch self.endCount {
                     case 0 ..< 1000:
                         return 1
                     case 1000 ..< 5000:
@@ -45,10 +45,10 @@ final class ContentViewModel: ObservableObject {
                     }
                 }
                 
-                if self.count < self.end {
-                    self.count += numbersToAdd
+                if self.count < self.endCount {
+                    self.count += additionNumbers
                 } else {
-                    self.count = self.end
+                    self.count = self.endCount
                     self.cancellable?.cancel()
                 }
             }
