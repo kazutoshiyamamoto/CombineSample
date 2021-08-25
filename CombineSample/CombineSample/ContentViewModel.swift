@@ -5,16 +5,16 @@
 //  Created by home on 2021/07/30.
 //
 
-import Foundation
+import SwiftUI
 import Combine
 
 final class ContentViewModel: ObservableObject {
-    private var cancellable: AnyCancellable?
     @Published var count = 0
     private let endCount: Int = 20
     
     @Published var isCountingCompleted = false
     
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
         
@@ -27,6 +27,27 @@ final class ContentViewModel: ObservableObject {
         //            }
         //            self.cancellables.removeAll()
         //        }
+    }
+    
+    // カウントアップ処理
+    func startCounting() -> Future<Void, Never> {
+        return Future() { promise in
+            Timer.publish(every: 0.1, on: .main, in: .common)
+                .autoconnect()
+                .receive(on: RunLoop.main)
+                .sink { [weak self] _ in
+                    guard let self = self else { return }
+                    
+                    if self.count < self.endCount {
+                        self.count += 1
+                    } else {
+                        // カウントアップが完了した時点でpromiseを実行する
+                        // promiseを実行するとFutureは値を発行（公開）する
+                        promise(Result.success(()))
+                    }
+                }
+                .store(in: &self.cancellables)
+        }
     }
     
     //    func startCounting(completionHandler: @escaping () -> Void) {
