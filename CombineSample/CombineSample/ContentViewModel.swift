@@ -18,6 +18,15 @@ final class ContentViewModel: ObservableObject {
     
     init() {
         
+        //        startCounting() { [weak self] in
+        //            // startCounting()の処理内でcompletionHandler()が呼ばれると以下の処理を実行する
+        //            guard let self = self else { return }
+        //
+        //            withAnimation(.easeOut(duration: 0.8)) {
+        //                self.isCountingCompleted = true
+        //            }
+        //            self.cancellables.removeAll()
+        //        }
     }
     
     //    func startCounting(completionHandler: @escaping () -> Void) {
