@@ -15,7 +15,9 @@ struct ContentView: View {
     }
     
     var body: some View {
-        Text("SampleText"))
+                Text("\(viewModel.count)")
+                    .font(.title)
+                    .fontWeight(.bold)
     }
 }
 
