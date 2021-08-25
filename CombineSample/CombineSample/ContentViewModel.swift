@@ -17,6 +17,18 @@ final class ContentViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     init() {
+        // カウントアップ処理の呼び出し元
+        // startCounting()の戻り値であるFutureはPublishersの一種であるため、
+        // Operatorsで値を変換したり、Subscribersで値を受け取ることができる
+        startCounting()
+            // startCounting()の処理内でpromiseが呼ばれると以下の処理を実行する
+            .sink { _ in
+                withAnimation(.easeOut(duration: 0.8)) {
+                    self.isCountingCompleted = true
+                }
+                self.cancellables.removeAll()
+            }
+            .store(in: &cancellables)
         
         //        startCounting() { [weak self] in
         //            // startCounting()の処理内でcompletionHandler()が呼ばれると以下の処理を実行する
