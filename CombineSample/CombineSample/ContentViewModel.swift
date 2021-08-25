@@ -10,6 +10,11 @@ import Combine
 
 final class ContentViewModel: ObservableObject {
     private var cancellable: AnyCancellable?
+    @Published var count = 0
+    private let endCount: Int = 20
+    
+    @Published var isCountingCompleted = false
+    
     
     init() {
         
