@@ -13,7 +13,16 @@ struct ContentView: View {
     init(viewModel: ContentViewModel) {
         self.viewModel = viewModel
     }
+
     var body: some View {
+        VStack {
+            
+            Button("Sample") {
+//                viewModel.onDoSomething() {
+//                    print("finish")
+//                }
+
+                viewModel.onTapped()
             }
         }
     }
