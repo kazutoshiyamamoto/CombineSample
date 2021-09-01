@@ -24,6 +24,8 @@ struct ContentView: View {
 
                 viewModel.onTapped()
             }
+        Button("Sample") {
+            viewModel.onTapped()
         }
     }
 }
