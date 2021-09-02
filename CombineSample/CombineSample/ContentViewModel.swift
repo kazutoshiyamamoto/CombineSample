@@ -5,14 +5,12 @@
 //  Created by home on 2021/07/30.
 //
 
-import SwiftUI
 import Combine
 
 final class ContentViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-//    lazy var doSomethingSubject = myDoSomethingSubject.eraseToAnyPublisher()
     private lazy var subject = PassthroughSubject<Int, Error>()
     
     enum SampleError: Error {
@@ -30,15 +28,12 @@ final class ContentViewModel: ObservableObject {
                 print ("completion:\($0)")
             },
             receiveValue: {
-                // do something
                 print("\($0)")
             })
             .store(in: &cancellables)
     }
     
     func onTapped() {
-        myDoSomethingSubject.send()
-//        myDoSomethingSubject.send(completion: .finished)
         // sendの挙動チェック
         let randomNumber = Int.random(in: 1...10)
         subject.send(randomNumber)
@@ -51,8 +46,5 @@ final class ContentViewModel: ObservableObject {
     }
     
     
-    //    func onDoSomething(completionHandler: @escaping () -> Void) {
-    //        print("onDoSomething")
-    //        completionHandler()
     //    }
 }
