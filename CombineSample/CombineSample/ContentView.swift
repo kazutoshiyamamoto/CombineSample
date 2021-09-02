@@ -15,16 +15,13 @@ struct ContentView: View {
     }
     
     var body: some View {
-            Button("Sample") {
-//                viewModel.onDoSomething() {
-//                    print("finish")
-//                }
-
-                viewModel.onTapped()
-            }
-        Button("Sample") {
-            viewModel.onTapped()
-        }
+        TextField("Search", text: $viewModel.text)
+            .frame(width: 300, height: 50)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+        
+        //        Button("Sample") {
+        //            viewModel.onTapped()
+        //        }
     }
 }
 
