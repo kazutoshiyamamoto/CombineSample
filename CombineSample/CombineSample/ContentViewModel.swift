@@ -43,10 +43,10 @@ final class ContentViewModel: ObservableObject {
         let randomNumber = Int.random(in: 1...10)
         subject.send(randomNumber)
         
-        // 終了する挙動を確認したい場合は以下をコメントアウト
+        // 終了する挙動を確認したい場合は、以下のコメントアウトを外す
         //        subject.send(completion: .finished)
         
-        // エラーで終了する挙動を確認したい場合は以下をコメントアウト
+        // エラーで終了する挙動を確認したい場合は、以下のコメントアウトを外す
         //        subject.send(completion: .failure(SampleError.error))
     }
     
