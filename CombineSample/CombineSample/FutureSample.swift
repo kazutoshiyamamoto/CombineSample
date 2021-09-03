@@ -91,7 +91,7 @@ final class FutureSampleViewModel: ObservableObject {
                     } else {
                         // カウントアップが完了した時点でpromiseを実行する
                         // promiseを実行するとFutureは値を発行（公開）する
-                        promise(Result.success(()))
+                        promise(.success(()))
                     }
                 }
                 .store(in: &self.cancellables)
