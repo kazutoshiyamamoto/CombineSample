@@ -15,11 +15,24 @@ struct ContentView: View {
     }
     
     var body: some View {
+        VStack {
+            TextField("Search", text: $viewModel.text, onCommit: { viewModel.onCommit() })
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            List {
+                ForEach(viewModel.users) { user in
+                    RepositoriesListRowView(user: user)
+                }
+            }
+            .onAppear {
+                print(viewModel.users)
+            }
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(viewModel: ContentViewModel())
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView(viewModel: ContentViewModel())
+//    }
+//}
