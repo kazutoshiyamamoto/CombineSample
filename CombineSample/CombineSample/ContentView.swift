@@ -27,6 +27,7 @@ struct ContentView: View {
             .onAppear {
                 print(viewModel.users)
             }
+            .listStyle(InsetGroupedListStyle())
         }
     }
 }
