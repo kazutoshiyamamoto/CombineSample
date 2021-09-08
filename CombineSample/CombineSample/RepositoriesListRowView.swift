@@ -15,10 +15,10 @@ struct RepositoriesListRowView: View {
     var body: some View {
         HStack(spacing: 25) {
             ImageView(url: user.avatarURL, cache: cache)
-                .frame(height: 80)
             
             Text(user.login)
         }
+        .frame(height: 50)
     }
 }
 
