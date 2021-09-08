@@ -18,6 +18,7 @@ struct ContentView: View {
         VStack {
             TextField("Search", text: $viewModel.text, onCommit: { viewModel.onCommit() })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding([.leading, .trailing], 25)
             
             List {
                 ForEach(viewModel.users) { user in
