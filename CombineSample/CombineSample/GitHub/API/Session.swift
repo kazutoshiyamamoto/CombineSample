@@ -64,6 +64,13 @@ final class Session {
                         return SessionError.other(error.localizedDescription)
                     }
                 }
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
                 },
                 receiveValue: {
                     promise(.success($0))

@@ -26,8 +26,13 @@ final class ContentViewModel: ObservableObject {
             .sink(receiveValue: { _ in
                 searchUserModel.fetchUser(query: self.text)
                     .receive(on: RunLoop.main)
-                    .sink(receiveCompletion: {
-                        print("completion: \($0)")
+                    .sink(receiveCompletion: { completion in
+                        switch completion {
+                        case .finished:
+                            break
+                        case .failure(let error):
+                            print(error)
+                        }
                     },
                     receiveValue: {
                         self.users = $0

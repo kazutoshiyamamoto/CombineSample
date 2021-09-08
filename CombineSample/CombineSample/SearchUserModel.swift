@@ -21,8 +21,13 @@ final class SearchUserModel: SearchUserModelProtocol {
         return Future() { promise in
             let request = SearchUsersRequest(query: query)
             self.session.send(request)
-                .sink(receiveCompletion: {
-                    print("completion: \($0)")
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
                 },
                 receiveValue: { response in
                     promise(.success(response.items))
