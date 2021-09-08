@@ -17,16 +17,12 @@ struct ContentView: View {
     var body: some View {
         VStack {
             TextField("Search", text: $viewModel.text, onCommit: { viewModel.onCommit() })
-                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding([.leading, .trailing], 25)
             
             List {
                 ForEach(viewModel.users) { user in
                     RepositoriesListRowView(user: user)
                 }
-            }
-            .onAppear {
-                print(viewModel.users)
             }
             .listStyle(InsetGroupedListStyle())
         }

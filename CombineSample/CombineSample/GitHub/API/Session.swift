@@ -55,48 +55,7 @@ final class Session {
                     
                     return element.data
                 }
-//                .mapError { error -> SessionError in
-//                    if let error = error as? SessionError {
-//                        return error
-//                    } else {
-//                        return SessionError.apiError(reason: error.localizedDescription)
-//                    }
-//                }
                 .decode(type: T.Response.self, decoder: JSONDecoder())
-                //                .mapError { error -> SessionError in
-                //                    if let error = error as? DecodingError {
-                //                        var errorToReport = error.localizedDescription
-                //                        switch error {
-                //                        case .dataCorrupted(let context):
-                //                            let details = context.underlyingError?.localizedDescription ?? context.codingPath.map { $0.stringValue }.joined(separator: ".")
-                //                            errorToReport = "\(context.debugDescription) - (\(details))"
-                //                        case .keyNotFound(let key, let context):
-                //                            let details = context.underlyingError?.localizedDescription ?? context.codingPath.map { $0.stringValue }.joined(separator: ".")
-                //                            errorToReport = "\(context.debugDescription) (key: \(key), \(details))"
-                //                        case .typeMismatch(let type, let context), .valueNotFound(let type, let context):
-                //                            let details = context.underlyingError?.localizedDescription ?? context.codingPath.map { $0.stringValue }.joined(separator: ".")
-                //                            errorToReport = "\(context.debugDescription) (type: \(type), \(details))"
-                //                        @unknown default:
-                //                            break
-                //                        }
-                //                        return SessionError.parserError(reason: errorToReport)
-                //                    }  else {
-                //                        return SessionError.apiError(reason: error.localizedDescription)
-                //                    }
-                //                }
-                //                .sink(receiveCompletion: { completion in
-                //                    switch completion {
-                //                    case .finished:
-                //                        break
-                //                    case .failure(let error):
-                //                        print(SessionError.failedToDecode(error))
-                //                    }
-                //                },
-                //                receiveValue: {
-                //                    promise(.success($0))
-                //                })
-                .sink(receiveCompletion: {
-                    print("completion: \($0)")
                 },
                 receiveValue: {
                     promise(.success($0))
@@ -111,8 +70,6 @@ enum SessionError: Error {
     case failedToCreateURL(URLComponents)
     case noResponse
     case unacceptableStatusCode(Int, Message?)
-    
-    // TODO: 正常系を確認した後にコメントアウトを外して動作確認する
     //    case failedToDecode(Error)
     //    case apiError(reason: String)
     //    case parserError(reason: String)

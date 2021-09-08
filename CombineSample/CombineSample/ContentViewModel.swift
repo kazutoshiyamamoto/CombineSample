@@ -29,10 +29,8 @@ final class ContentViewModel: ObservableObject {
                     .sink(receiveCompletion: {
                         print("completion: \($0)")
                     },
-                    // TODO: assignに変更
                     receiveValue: {
                         self.users = $0
-                        //                        print(self.users)
                     })
                     .store(in: &self.cancellables)
             })
