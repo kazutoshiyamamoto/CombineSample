@@ -56,6 +56,14 @@ final class Session {
                     return element.data
                 }
                 .decode(type: T.Response.self, decoder: JSONDecoder())
+                .mapError { error -> SessionError in
+                    if let error = error as? DecodingError {
+                        return SessionError.parserError(error.localizedDescription)
+                    } else {
+                        // オフラインなどのエラー
+                        return SessionError.other(error.localizedDescription)
+                    }
+                }
                 },
                 receiveValue: {
                     promise(.success($0))
@@ -70,9 +78,8 @@ enum SessionError: Error {
     case failedToCreateURL(URLComponents)
     case noResponse
     case unacceptableStatusCode(Int, Message?)
-    //    case failedToDecode(Error)
-    //    case apiError(reason: String)
-    //    case parserError(reason: String)
+    case parserError(String)
+    case other(String)
 }
 
 extension SessionError {
