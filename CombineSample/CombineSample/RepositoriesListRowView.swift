@@ -15,6 +15,7 @@ struct RepositoriesListRowView: View {
     var body: some View {
         HStack(spacing: 25) {
             ImageView(url: user.avatarURL, cache: cache)
+                .clipShape(Circle())
             
             Text(user.login)
         }
