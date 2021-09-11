@@ -42,8 +42,7 @@ final class ContentViewModel: ObservableObject {
             .store(in: &self.cancellables)
     }
     
-    // TODO: 抽象的なメソッド名を修正
-    func onCommit() {
+    func searchButtonTapped() {
         subject.send()
     }
 }
