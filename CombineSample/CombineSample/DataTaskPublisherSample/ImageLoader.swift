@@ -27,7 +27,14 @@ final class ImageLoader: ObservableObject {
         } else {
             fetchImage(url: url)
                 .receive(on: RunLoop.main)
-                .sink(receiveValue: {
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print(error)
+                    }
+                }, receiveValue: {
                     self.image = $0
                     self.addCache($0)
                 })
@@ -35,13 +42,19 @@ final class ImageLoader: ObservableObject {
         }
     }
     
-    private func fetchImage(url: URL) -> Future<UIImage, Never> {
+    private func fetchImage(url: URL) -> Future<UIImage, Error> {
         return Future() { promise in
             URLSession.shared.dataTaskPublisher(for: url)
                 .compactMap { UIImage(data: $0.data) }
-                .sink(receiveCompletion: {
-                    print("completion: \($0)")
-                }, receiveValue: {
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                },
+                receiveValue: {
                     promise(.success($0))
                 })
                 .store(in: &self.cancellables)
