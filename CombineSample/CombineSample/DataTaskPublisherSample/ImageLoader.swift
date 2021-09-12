@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ImageLoader: ObservableObject {
+final class ImageLoader: ObservableObject {
     @Published var image: UIImage?
     
     private let url: URL

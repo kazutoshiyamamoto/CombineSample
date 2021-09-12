@@ -13,7 +13,7 @@ protocol SearchUserModelProtocol {
 }
 
 final class SearchUserModel: SearchUserModelProtocol {
-    let session = Session()
+    private let session = Session()
     
     private var cancellables = Set<AnyCancellable>()
     

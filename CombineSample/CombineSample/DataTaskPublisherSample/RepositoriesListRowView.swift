@@ -10,7 +10,7 @@ import SwiftUI
 struct RepositoriesListRowView: View {
     let user: User
     
-    @Environment(\.imageCache) var cache: ImageCache
+    @Environment(\.imageCache) private var cache: ImageCache
     
     var body: some View {
         HStack(spacing: 25) {
