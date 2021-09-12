@@ -21,7 +21,7 @@ struct SearchUserView: View {
             
             List {
                 ForEach(viewModel.users) { user in
-                    RepositoriesListRowView(user: user)
+                    UserListRowView(user: user)
                 }
             }
             .listStyle(InsetGroupedListStyle())

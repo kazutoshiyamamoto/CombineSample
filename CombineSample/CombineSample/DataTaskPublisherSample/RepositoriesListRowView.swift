@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RepositoriesListRowView: View {
+struct UserListRowView: View {
     let user: User
     
     @Environment(\.imageCache) private var cache: ImageCache
@@ -25,6 +25,6 @@ struct RepositoriesListRowView: View {
 
 struct RepositoriesListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        RepositoriesListRowView(user: User(login: "", avatarURL: URL(string: "")!))
+        UserListRowView(user: User(login: "", avatarURL: URL(string: "")!))
     }
 }
