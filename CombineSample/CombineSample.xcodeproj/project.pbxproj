@@ -30,6 +30,8 @@
 		FDC9BF0326E79D5000357D9B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9BF0226E79D5000357D9B /* ImageCache.swift */; };
 		FDC9BF0526E79EE500357D9B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9BF0426E79EE500357D9B /* ImageLoader.swift */; };
 		FDC9BF0726E79F2900357D9B /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9BF0626E79F2900357D9B /* ImageView.swift */; };
+		FDC9BF0A26EDA11800357D9B /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9BF0926EDA11800357D9B /* SearchUserView.swift */; };
+		FDC9BF0C26EDA14600357D9B /* SearchUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9BF0B26EDA14600357D9B /* SearchUserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		FDC9BF0226E79D5000357D9B /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		FDC9BF0426E79EE500357D9B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		FDC9BF0626E79F2900357D9B /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		FDC9BF0926EDA11800357D9B /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
+		FDC9BF0B26EDA14600357D9B /* SearchUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,12 +136,7 @@
 				FD82AD362697424F00DBA7D0 /* CombineSampleApp.swift */,
 				FD82AD382697424F00DBA7D0 /* ContentView.swift */,
 				FD7915A326B3F0AE006CBE03 /* ContentViewModel.swift */,
-				FDC9BEFE26E22C7900357D9B /* RepositoriesListRowView.swift */,
-				FDC9BEFA26E2158100357D9B /* SearchUserModel.swift */,
-				FDC9BF0626E79F2900357D9B /* ImageView.swift */,
-				FDC9BF0426E79EE500357D9B /* ImageLoader.swift */,
-				FDC9BF0226E79D5000357D9B /* ImageCache.swift */,
-				FD8CABBD26E1F499007D7786 /* GitHub */,
+				FDC9BF0826EDA0E100357D9B /* DataTaskPublisherSample */,
 				FD82AD61269F0A7700DBA7D0 /* NotificationCenterSample.swift */,
 				FDA1D56A26B9809E0064D59E /* OperatorSample.swift */,
 				FD4329B326CFE8A9003EAD53 /* JustSample.swift */,
@@ -219,6 +218,21 @@
 				FD8CABC726E1F499007D7786 /* SearchUsersRequest.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		FDC9BF0826EDA0E100357D9B /* DataTaskPublisherSample */ = {
+			isa = PBXGroup;
+			children = (
+				FDC9BF0926EDA11800357D9B /* SearchUserView.swift */,
+				FDC9BEFE26E22C7900357D9B /* RepositoriesListRowView.swift */,
+				FDC9BF0626E79F2900357D9B /* ImageView.swift */,
+				FDC9BF0B26EDA14600357D9B /* SearchUserViewModel.swift */,
+				FDC9BEFA26E2158100357D9B /* SearchUserModel.swift */,
+				FDC9BF0426E79EE500357D9B /* ImageLoader.swift */,
+				FDC9BF0226E79D5000357D9B /* ImageCache.swift */,
+				FD8CABBD26E1F499007D7786 /* GitHub */,
+			);
+			path = DataTaskPublisherSample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,9 +371,11 @@
 				FD8CABCD26E1F499007D7786 /* SearchUsersRequest.swift in Sources */,
 				FD7915A426B3F0AE006CBE03 /* ContentViewModel.swift in Sources */,
 				FD8CABCC26E1F499007D7786 /* Request.swift in Sources */,
+				FDC9BF0A26EDA11800357D9B /* SearchUserView.swift in Sources */,
 				FD82AD392697424F00DBA7D0 /* ContentView.swift in Sources */,
 				FD8C862526D7C10700CE0D18 /* FutureSample.swift in Sources */,
 				FD82AD372697424F00DBA7D0 /* CombineSampleApp.swift in Sources */,
+				FDC9BF0C26EDA14600357D9B /* SearchUserViewModel.swift in Sources */,
 				FD82AD62269F0A7700DBA7D0 /* NotificationCenterSample.swift in Sources */,
 				FDA1D56B26B9809E0064D59E /* OperatorSample.swift in Sources */,
 				FDBFCC3726D3BFE700EA2FB6 /* TimerSample.swift in Sources */,

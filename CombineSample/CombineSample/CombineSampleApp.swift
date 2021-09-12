@@ -11,7 +11,7 @@ import SwiftUI
 struct CombineSampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: ContentViewModel(searchUserModel: SearchUserModel()))
+            SearchUserView(viewModel: SearchUserViewModel(searchUserModel: SearchUserModel()))
         }
     }
 }
