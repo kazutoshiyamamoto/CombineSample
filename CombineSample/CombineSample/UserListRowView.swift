@@ -23,7 +23,7 @@ struct UserListRowView: View {
     }
 }
 
-struct RepositoriesListRowView_Previews: PreviewProvider {
+struct UserListRowView_Previews: PreviewProvider {
     static var previews: some View {
         UserListRowView(user: User(login: "", avatarURL: URL(string: "")!))
     }
