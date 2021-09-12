@@ -9,13 +9,7 @@ import Foundation
 import Combine
 
 final class Session {
-    private let additionalHeaderFields: () -> [String: String]?
-    
     private var cancellables = Set<AnyCancellable>()
-    
-    init(additionalHeaderFields: @escaping () -> [String: String]? = { nil }) {
-        self.additionalHeaderFields = additionalHeaderFields
-    }
     
     func send<T: Request>(_ request: T) -> Future<T.Response, SessionError> {
         return Future() { promise in
@@ -33,14 +27,7 @@ final class Session {
             }
             urlRequest.httpMethod = request.method.rawValue
             
-            let headerFields: [String: String]
-            if let additionalHeaderFields = self.additionalHeaderFields() {
-                headerFields = request.headerFields.merging(additionalHeaderFields, uniquingKeysWith: +)
-            } else {
-                headerFields = request.headerFields
-            }
-            
-            urlRequest.allHTTPHeaderFields = headerFields
+            urlRequest.allHTTPHeaderFields = request.headerFields
             
             URLSession.shared.dataTaskPublisher(for: urlRequest)
                 .tryMap() { element -> Data in
