@@ -19,8 +19,7 @@ struct TimerSampleView: View {
     var body: some View {
         VStack {
             Text("\(viewModel.count)")
-                .font(.title)
-                .fontWeight(.bold)
+                .font(Font(UIFont.monospacedDigitSystemFont(ofSize: 30, weight: .bold)))
                 .padding()
             
 //            Button("Start") {
