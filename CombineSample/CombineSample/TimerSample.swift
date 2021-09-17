@@ -61,26 +61,54 @@ final class TimerSampleViewModel: ObservableObject {
     
     @Published var isCompleted = false
     
+    private var cancellables = Set<AnyCancellable>()
     
     //    private let endCount: Int = 10000
     
     //    @Published var isTimerRunning = false
     
     init() {
-        cancellable = Timer.publish(every: 0.02, on: .main, in: .common)
-            .autoconnect()
-            .sink { [weak self] _ in
-                guard let self = self else { return }
-
-                let additionNumber = Int(ceil(Double(self.endCount) / 50.0))
-                
-                if self.count < self.endCount {
-                    self.count += additionNumber
-                } else {
-                    self.count = self.endCount
-                    self.cancellable?.cancel()
-                }
+        start(end: 100000)
+            .sink { _ in
+                self.isCompleted = true
+                self.cancellables.removeAll()
             }
+            .store(in: &cancellables)
+        
+        //        cancellable = Timer.publish(every: 0.02, on: .main, in: .common)
+        //            .autoconnect()
+        //            .sink { [weak self] _ in
+        //                guard let self = self else { return }
+        //
+        //                let additionNumber = Int(ceil(Double(self.endCount) / 50.0))
+        //
+        //                if self.count < self.endCount {
+        //                    self.count += additionNumber
+        //                } else {
+        //                    self.count = self.endCount
+        //                    self.cancellable?.cancel()
+        //                }
+        //            }
+    }
+    
+    func start(end: Int) -> Future<Void, Never> {
+        return Future() { promise in
+            Timer.publish(every: 0.05, on: .main, in: .common)
+                .autoconnect()
+                .sink { [weak self] _ in
+                    guard let self = self else { return }
+                    
+                    let additionNumber = Int(ceil(Double(end) / 50.0))
+                    
+                    if self.count < end {
+                        self.count += additionNumber
+                    } else {
+                        self.count = end
+                        promise(.success(()))
+                    }
+                }
+                .store(in: &self.cancellables)
+        }
     }
     
     //    func startCounting() {
