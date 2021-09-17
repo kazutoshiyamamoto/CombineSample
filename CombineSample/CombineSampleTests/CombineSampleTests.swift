@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import CombineSample
+import Combine
 
 class CombineSampleTests: XCTestCase {
 
@@ -29,5 +30,23 @@ class CombineSampleTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
+    
+    // MARK:TimerSampleTest
+    func testStart() {
+        let viewModel = TimerSampleViewModel()
+        
+        var cancellables = Set<AnyCancellable>()
+        
+        let expectation = XCTestExpectation(description: "Counting")
+        
+        viewModel.start(end: 100)
+            .sink { _ in
+                XCTAssertEqual(viewModel.count, 100)
+                cancellables.removeAll()
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+        
+        wait(for: [expectation], timeout: 3.0)
+    }
 }
