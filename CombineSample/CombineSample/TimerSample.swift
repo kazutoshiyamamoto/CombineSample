@@ -17,25 +17,35 @@ struct TimerSampleView: View {
     }
     
     var body: some View {
-        VStack {
+        ZStack {
+            //        VStack {
             Text("\(viewModel.count)")
                 .font(Font(UIFont.monospacedDigitSystemFont(ofSize: 30, weight: .bold)))
                 .padding()
             
-//            Button("Start") {
-//                viewModel.startCounting()
-//            }
-//            .disabled(viewModel.isTimerRunning)
-//
-//            Button("Stop") {
-//                viewModel.stopCounting()
-//            }
-//            .disabled(!viewModel.isTimerRunning)
-//            .padding()
-//
-//            Button("Reset") {
-//                viewModel.resetCount()
-//            }
+            //            Button("Start") {
+            //                viewModel.startCounting()
+            //            }
+            //            .disabled(viewModel.isTimerRunning)
+            //
+            //            Button("Stop") {
+            //                viewModel.stopCounting()
+            //            }
+            //            .disabled(!viewModel.isTimerRunning)
+            //            .padding()
+            //
+            //            Button("Reset") {
+            //                viewModel.resetCount()
+            //            }
+            //        }
+            
+            if viewModel.isCompleted {
+                Text("Completed!")
+                    .frame(width: 200, height: 50)
+                    .foregroundColor(.black)
+                    .background(Color(red: 0.9, green: 0.9, blue: 0.9, opacity: 0.9))
+                    .cornerRadius(10)
+            }
         }
     }
 }
@@ -48,12 +58,13 @@ struct TimerSampleView_Previews: PreviewProvider {
 
 final class TimerSampleViewModel: ObservableObject {
     @Published var count = 0
-
-    private let endCount: Int = 10000
+    
+    @Published var isCompleted = false
+    
+    
+    //    private let endCount: Int = 10000
     
     //    @Published var isTimerRunning = false
-    
-    private var cancellable: AnyCancellable?
     
     init() {
         cancellable = Timer.publish(every: 0.02, on: .main, in: .common)
