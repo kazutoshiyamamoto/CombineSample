@@ -32,7 +32,7 @@ class CombineSampleTests: XCTestCase {
     }
     
     // MARK:TimerSampleTest
-    func testStart() {
+    func testStart_カウントアップ後のcountがstartの引数で指定した数字と等しくなること() {
         let viewModel = TimerSampleViewModel()
         
         var cancellables = Set<AnyCancellable>()
