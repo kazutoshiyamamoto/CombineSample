@@ -11,7 +11,7 @@ import SwiftUI
 struct CombineSampleApp: App {
     var body: some Scene {
         WindowGroup {
-            TimerSampleView(viewModel: TimerSampleViewModel())
+            SearchUserView(viewModel: SearchUserViewModel(searchUserModel: SearchUserModel()))
         }
     }
 }
