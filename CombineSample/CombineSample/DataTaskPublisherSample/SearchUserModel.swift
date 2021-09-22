@@ -8,7 +8,12 @@
 import Foundation
 import Combine
 
+enum ValidateError: Error {
+    case invalidSearchText
+}
+
 protocol SearchUserModelProtocol {
+    func validate(searchText: String) -> Result<Void, ValidateError>
     func fetchUser(query: String) -> Future<[User], Error>
 }
 
@@ -16,6 +21,15 @@ final class SearchUserModel: SearchUserModelProtocol {
     private let session = Session()
     
     private var cancellables = Set<AnyCancellable>()
+    
+    func validate(searchText: String) -> Result<Void, ValidateError> {
+        switch searchText.isEmpty {
+        case false:
+            return .success(())
+        case true:
+            return .failure(.invalidSearchText)
+        }
+    }
     
     func fetchUser(query: String) -> Future<[User], Error> {
         return Future() { promise in
