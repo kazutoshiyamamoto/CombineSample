@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 final class SearchUserViewModel: ObservableObject {
-    @Published var text = ""
+    @Published var searchText = ""
     
     @Published var users: [User] = []
     

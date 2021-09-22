@@ -16,7 +16,7 @@ struct SearchUserView: View {
     
     var body: some View {
         VStack {
-            TextField("Search", text: $viewModel.text, onCommit: { viewModel.searchButtonTapped() })
+            TextField("Search", text: $viewModel.searchText, onCommit: { viewModel.searchButtonTapped() })
                 .padding([.leading, .trailing], 25)
             
             List {
