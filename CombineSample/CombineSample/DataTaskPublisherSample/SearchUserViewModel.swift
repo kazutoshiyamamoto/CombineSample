@@ -48,6 +48,23 @@ final class SearchUserViewModel: ObservableObject {
     }
     
     func searchButtonTapped() {
-        subject.send()
+        let result = searchUserModel.validate(searchText: searchText)
+        
+        switch result {
+        case .success():
+            subject.send()
+        case .failure(let error):
+            errorMessage = error.errorText
+            isErrorMessageActive = true
+        }
+    }
+}
+
+extension ValidateError {
+    var errorText: String {
+        switch self {
+        case .invalidSearchText:
+            return "Please enter a search word"
+        }
     }
 }
