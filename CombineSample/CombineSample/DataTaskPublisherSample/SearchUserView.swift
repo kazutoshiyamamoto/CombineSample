@@ -26,6 +26,9 @@ struct SearchUserView: View {
             }
             .listStyle(InsetGroupedListStyle())
         }
+        .alert(isPresented: $viewModel.isErrorMessageActive, content: {
+            Alert(title: Text("Error"), message: Text(viewModel.errorMessage))
+        })
     }
 }
 

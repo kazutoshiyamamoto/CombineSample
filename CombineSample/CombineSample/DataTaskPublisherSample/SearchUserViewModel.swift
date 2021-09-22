@@ -13,6 +13,10 @@ final class SearchUserViewModel: ObservableObject {
     
     @Published var users: [User] = []
     
+    @Published var isErrorMessageActive = false
+    
+    var errorMessage = ""
+    
     private lazy var subject = PassthroughSubject<Void, Never>()
     
     private var cancellables = Set<AnyCancellable>()
@@ -24,14 +28,15 @@ final class SearchUserViewModel: ObservableObject {
         
         subject
             .sink(receiveValue: { _ in
-                searchUserModel.fetchUser(query: self.text)
+                searchUserModel.fetchUser(query: self.searchText)
                     .receive(on: RunLoop.main)
                     .sink(receiveCompletion: { completion in
                         switch completion {
                         case .finished:
                             break
                         case .failure(let error):
-                            print(error)
+                            self.errorMessage = error.localizedDescription
+                            self.isErrorMessageActive = true
                         }
                     },
                     receiveValue: {
